@@ -1048,15 +1048,8 @@ html&gt;body{padding:0}&lt;/style&gt;
   &lt;div class=&quot;rlc-heading&quot;&gt;
     &lt;div&gt;
       &lt;h2&gt;Review loop composer&lt;/h2&gt;
-      &lt;p class=&quot;text-muted&quot;&gt;Choose a preset, adjust the process, then copy the generated instruction.&lt;/p&gt;
+      &lt;p class=&quot;text-muted&quot;&gt;Adjust the review process, then copy the generated instruction.&lt;/p&gt;
     &lt;/div&gt;
-    &lt;span id=&quot;rlc-mode-label&quot; class=&quot;viz-badge&quot; aria-live=&quot;polite&quot;&gt;Thorough&lt;/span&gt;
-  &lt;/div&gt;
-
-  &lt;div class=&quot;nav nav-pills rlc-presets&quot; aria-label=&quot;Review presets&quot;&gt;
-    &lt;button class=&quot;nav-link&quot; id=&quot;rlc-preset-quick&quot; type=&quot;button&quot; aria-pressed=&quot;false&quot;&gt;Quick&lt;/button&gt;
-    &lt;button class=&quot;nav-link active&quot; id=&quot;rlc-preset-thorough&quot; type=&quot;button&quot; aria-pressed=&quot;true&quot;&gt;Thorough&lt;/button&gt;
-    &lt;button class=&quot;nav-link&quot; id=&quot;rlc-preset-exhaustive&quot; type=&quot;button&quot; aria-pressed=&quot;false&quot;&gt;Exhaustive&lt;/button&gt;
   &lt;/div&gt;
 
   &lt;div class=&quot;rlc-layout&quot;&gt;
@@ -1065,7 +1058,7 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;div class=&quot;rlc-section-heading&quot;&gt;
           &lt;h3 id=&quot;rlc-plan-heading&quot;&gt;Plan review&lt;/h3&gt;
           &lt;label class=&quot;form-check form-switch&quot;&gt;
-            &lt;input class=&quot;form-check-input&quot; id=&quot;rlc-plan-enabled&quot; type=&quot;checkbox&quot; checked&gt;
+            &lt;input class=&quot;form-check-input&quot; id=&quot;rlc-plan-enabled&quot; type=&quot;checkbox&quot;&gt;
             &lt;span class=&quot;form-check-label&quot;&gt;Enabled&lt;/span&gt;
           &lt;/label&gt;
         &lt;/div&gt;
@@ -1091,9 +1084,9 @@ html&gt;body{padding:0}&lt;/style&gt;
           &lt;/label&gt;
           &lt;label class=&quot;form-label&quot; for=&quot;rlc-plan-context&quot;&gt;Reviewer context
             &lt;select class=&quot;form-select&quot; id=&quot;rlc-plan-context&quot;&gt;
-              &lt;option value=&quot;fresh&quot;&gt;Fresh reviewers&lt;/option&gt;
+              &lt;option value=&quot;fresh&quot; selected&gt;Fresh reviewers&lt;/option&gt;
               &lt;option value=&quot;returning&quot;&gt;Returning reviewers&lt;/option&gt;
-              &lt;option value=&quot;hybrid&quot; selected&gt;Hybrid&lt;/option&gt;
+              &lt;option value=&quot;hybrid&quot;&gt;Hybrid&lt;/option&gt;
             &lt;/select&gt;
           &lt;/label&gt;
           &lt;label class=&quot;form-check form-switch rlc-switch-row&quot;&gt;
@@ -1119,9 +1112,9 @@ html&gt;body{padding:0}&lt;/style&gt;
           &lt;/label&gt;
           &lt;label class=&quot;form-label&quot; for=&quot;rlc-final-reviewers&quot;&gt;Reviewers per iteration
             &lt;select class=&quot;form-select&quot; id=&quot;rlc-final-reviewers&quot;&gt;
-              &lt;option value=&quot;1&quot;&gt;1 reviewer&lt;/option&gt;
+              &lt;option value=&quot;1&quot; selected&gt;1 reviewer&lt;/option&gt;
               &lt;option value=&quot;2&quot;&gt;2 reviewers&lt;/option&gt;
-              &lt;option value=&quot;3&quot; selected&gt;3 reviewers&lt;/option&gt;
+              &lt;option value=&quot;3&quot;&gt;3 reviewers&lt;/option&gt;
               &lt;option value=&quot;4&quot;&gt;4 reviewers&lt;/option&gt;
               &lt;option value=&quot;5&quot;&gt;5 reviewers&lt;/option&gt;
               &lt;option value=&quot;6&quot;&gt;6 reviewers&lt;/option&gt;
@@ -1129,9 +1122,9 @@ html&gt;body{padding:0}&lt;/style&gt;
           &lt;/label&gt;
           &lt;label class=&quot;form-label&quot; for=&quot;rlc-final-context&quot;&gt;Reviewer context
             &lt;select class=&quot;form-select&quot; id=&quot;rlc-final-context&quot;&gt;
-              &lt;option value=&quot;fresh&quot;&gt;Fresh reviewers&lt;/option&gt;
+              &lt;option value=&quot;fresh&quot; selected&gt;Fresh reviewers&lt;/option&gt;
               &lt;option value=&quot;returning&quot;&gt;Returning reviewers&lt;/option&gt;
-              &lt;option value=&quot;hybrid&quot; selected&gt;Hybrid&lt;/option&gt;
+              &lt;option value=&quot;hybrid&quot;&gt;Hybrid&lt;/option&gt;
             &lt;/select&gt;
           &lt;/label&gt;
           &lt;label class=&quot;form-check form-switch rlc-switch-row&quot;&gt;
@@ -1154,24 +1147,12 @@ html&gt;body{padding:0}&lt;/style&gt;
             &lt;/select&gt;
           &lt;/label&gt;
           &lt;label class=&quot;form-label&quot; for=&quot;rlc-lenses&quot;&gt;Reviewer focus
-            &lt;input class=&quot;form-control&quot; id=&quot;rlc-lenses&quot; type=&quot;text&quot; value=&quot;Choose relevant, complementary lenses&quot; placeholder=&quot;e.g. correctness, security, UX&quot;&gt;
+            &lt;input class=&quot;form-control&quot; id=&quot;rlc-lenses&quot; type=&quot;text&quot; value=&quot;&quot; placeholder=&quot;e.g. correctness, security, UX&quot;&gt;
           &lt;/label&gt;
         &lt;/div&gt;
         &lt;div class=&quot;rlc-checks&quot;&gt;
           &lt;label class=&quot;form-check&quot;&gt;
-            &lt;input class=&quot;form-check-input&quot; id=&quot;rlc-evidence&quot; type=&quot;checkbox&quot; checked&gt;
-            &lt;span class=&quot;form-check-label&quot;&gt;Require evidence and concrete corrections&lt;/span&gt;
-          &lt;/label&gt;
-          &lt;label class=&quot;form-check&quot;&gt;
-            &lt;input class=&quot;form-check-input&quot; id=&quot;rlc-ledger&quot; type=&quot;checkbox&quot; checked&gt;
-            &lt;span class=&quot;form-check-label&quot;&gt;Maintain a finding ledger&lt;/span&gt;
-          &lt;/label&gt;
-          &lt;label class=&quot;form-check&quot;&gt;
-            &lt;input class=&quot;form-check-input&quot; id=&quot;rlc-readonly&quot; type=&quot;checkbox&quot; checked&gt;
-            &lt;span class=&quot;form-check-label&quot;&gt;Keep reviewers read-only&lt;/span&gt;
-          &lt;/label&gt;
-          &lt;label class=&quot;form-check&quot;&gt;
-            &lt;input class=&quot;form-check-input&quot; id=&quot;rlc-summary&quot; type=&quot;checkbox&quot; checked&gt;
+            &lt;input class=&quot;form-check-input&quot; id=&quot;rlc-summary&quot; type=&quot;checkbox&quot;&gt;
             &lt;span class=&quot;form-check-label&quot;&gt;Summarize the review process at delivery&lt;/span&gt;
           &lt;/label&gt;
         &lt;/div&gt;
@@ -1215,10 +1196,8 @@ html&gt;body{padding:0}&lt;/style&gt;
   #review-loop-composer .rlc-heading p {
     margin-bottom: 0;
   }
-  #review-loop-composer .rlc-presets {
-    margin: 18px 0 20px;
-  }
   #review-loop-composer .rlc-layout {
+    margin-top: 18px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(360px, 1fr);
     gap: 24px;
@@ -1285,39 +1264,12 @@ html&gt;body{padding:0}&lt;/style&gt;
 (() =&gt; {
   const root = document.getElementById(&#x27;review-loop-composer&#x27;);
   const $ = (id) =&gt; root.querySelector(&#x27;#&#x27; + id);
-  const presetButtons = {
-    quick: $(&#x27;rlc-preset-quick&#x27;),
-    thorough: $(&#x27;rlc-preset-thorough&#x27;),
-    exhaustive: $(&#x27;rlc-preset-exhaustive&#x27;)
-  };
   const ids = [
     &#x27;rlc-plan-enabled&#x27;, &#x27;rlc-plan-rounds&#x27;, &#x27;rlc-plan-reviewers&#x27;, &#x27;rlc-plan-context&#x27;,
     &#x27;rlc-plan-discretion&#x27;, &#x27;rlc-final-rounds&#x27;, &#x27;rlc-final-reviewers&#x27;,
     &#x27;rlc-final-context&#x27;, &#x27;rlc-final-discretion&#x27;, &#x27;rlc-threshold&#x27;, &#x27;rlc-lenses&#x27;,
-    &#x27;rlc-evidence&#x27;, &#x27;rlc-ledger&#x27;, &#x27;rlc-readonly&#x27;, &#x27;rlc-summary&#x27;
+    &#x27;rlc-summary&#x27;
   ];
-  const presets = {
-    quick: {
-      planEnabled: false, planRounds: &#x27;1&#x27;, planReviewers: &#x27;1&#x27;, planContext: &#x27;fresh&#x27;, planDiscretion: true,
-      finalRounds: &#x27;1&#x27;, finalReviewers: &#x27;1&#x27;, finalContext: &#x27;fresh&#x27;, finalDiscretion: true,
-      threshold: &#x27;defects&#x27;, lenses: &#x27;the single most relevant concern&#x27;, evidence: true,
-      ledger: false, readonly: true, summary: false
-    },
-    thorough: {
-      planEnabled: true, planRounds: &#x27;converge&#x27;, planReviewers: &#x27;1&#x27;, planContext: &#x27;fresh&#x27;, planDiscretion: true,
-      finalRounds: &#x27;converge&#x27;, finalReviewers: &#x27;3&#x27;, finalContext: &#x27;fresh&#x27;, finalDiscretion: true,
-      threshold: &#x27;material&#x27;, lenses: &#x27;&#x27;, evidence: false,
-      ledger: false, readonly: false, summary: false
-    },
-    exhaustive: {
-      planEnabled: true, planRounds: &#x27;converge&#x27;, planReviewers: &#x27;2&#x27;, planContext: &#x27;fresh&#x27;, planDiscretion: true,
-      finalRounds: &#x27;converge&#x27;, finalReviewers: &#x27;4&#x27;, finalContext: &#x27;fresh&#x27;, finalDiscretion: true,
-      threshold: &#x27;actionable&#x27;, lenses: &#x27;correctness, requirements, verification, risks, and domain-specific concerns&#x27;, evidence: true,
-      ledger: true, readonly: true, summary: true
-    }
-  };
-  let currentPreset = &#x27;thorough&#x27;;
-  let modified = false;
 
   function value(id) { return $(id).value; }
   function checked(id) { return $(id).checked; }
@@ -1396,9 +1348,6 @@ html&gt;body{padding:0}&lt;/style&gt;
     const behavior = [];
     if (value(&#x27;rlc-threshold&#x27;) !== &#x27;material&#x27;) behavior.push(threshold);
     if (lenses) behavior.push(`Focus reviewers on ${lenses}.`);
-    if (checked(&#x27;rlc-evidence&#x27;)) behavior.push(`Require concrete, actionable findings supported by evidence.`);
-    if (checked(&#x27;rlc-readonly&#x27;)) behavior.push(`Reviewers should report findings rather than edit the work.`);
-    if (checked(&#x27;rlc-ledger&#x27;)) behavior.push(`Track findings and their resolution to avoid repeated or contradictory feedback.`);
     if (behavior.length) parts.push(behavior.join(&#x27; &#x27;));
 
     if (checked(&#x27;rlc-summary&#x27;)) {
@@ -1408,43 +1357,10 @@ html&gt;body{padding:0}&lt;/style&gt;
     const output = parts.join(&#x27;\n\n&#x27;);
     $(&#x27;rlc-output&#x27;).value = output;
     $(&#x27;rlc-count&#x27;).textContent = `${output.length.toLocaleString()} characters`;
-    $(&#x27;rlc-mode-label&#x27;).textContent = `${modified ? &#x27;Modified &#x27; : &#x27;&#x27;}${currentPreset[0].toUpperCase() + currentPreset.slice(1)}`;
   }
 
-  function applyPreset(name) {
-    const p = presets[name];
-    currentPreset = name;
-    modified = false;
-    $(&#x27;rlc-plan-enabled&#x27;).checked = p.planEnabled;
-    $(&#x27;rlc-plan-rounds&#x27;).value = p.planRounds;
-    $(&#x27;rlc-plan-reviewers&#x27;).value = p.planReviewers;
-    $(&#x27;rlc-plan-context&#x27;).value = p.planContext;
-    $(&#x27;rlc-plan-discretion&#x27;).checked = p.planDiscretion;
-    $(&#x27;rlc-final-rounds&#x27;).value = p.finalRounds;
-    $(&#x27;rlc-final-reviewers&#x27;).value = p.finalReviewers;
-    $(&#x27;rlc-final-context&#x27;).value = p.finalContext;
-    $(&#x27;rlc-final-discretion&#x27;).checked = p.finalDiscretion;
-    $(&#x27;rlc-threshold&#x27;).value = p.threshold;
-    $(&#x27;rlc-lenses&#x27;).value = p.lenses;
-    $(&#x27;rlc-evidence&#x27;).checked = p.evidence;
-    $(&#x27;rlc-ledger&#x27;).checked = p.ledger;
-    $(&#x27;rlc-readonly&#x27;).checked = p.readonly;
-    $(&#x27;rlc-summary&#x27;).checked = p.summary;
-    Object.entries(presetButtons).forEach(([key, button]) =&gt; {
-      const selected = key === name;
-      button.classList.toggle(&#x27;active&#x27;, selected);
-      button.setAttribute(&#x27;aria-pressed&#x27;, String(selected));
-    });
-    $(&#x27;rlc-copy-status&#x27;).textContent = &#x27;&#x27;;
-    render();
-  }
-
-  Object.entries(presetButtons).forEach(([name, button]) =&gt; {
-    button.addEventListener(&#x27;click&#x27;, () =&gt; applyPreset(name));
-  });
   ids.forEach((id) =&gt; {
     $(id).addEventListener(&#x27;input&#x27;, () =&gt; {
-      modified = true;
       $(&#x27;rlc-copy-status&#x27;).textContent = &#x27;&#x27;;
       render();
     });
@@ -1463,7 +1379,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     }
   });
 
-  applyPreset(&#x27;thorough&#x27;);
+  render();
 })();
 &lt;/script&gt;
 
