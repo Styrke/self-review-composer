@@ -1275,9 +1275,9 @@ html&gt;body{padding:0}&lt;/style&gt;
   function checked(id) { return $(id).checked; }
   function plural(n, singular, pluralForm) { return Number(n) === 1 ? singular : pluralForm; }
 
-  function iterationText(target, mode) {
+  function iterationText(target, mode, count) {
     if (mode === &#x27;converge&#x27;) {
-      return `Revise ${target} as appropriate between rounds and continue until reviewers provide no significant new feedback.`;
+      return `Revise ${target} as appropriate between rounds and continue until ${plural(count, &#x27;the reviewer provides&#x27;, &#x27;reviewers provide&#x27;)} no significant new feedback.`;
     }
     const n = Number(mode);
     return `Run exactly ${n} review ${plural(n, &#x27;round&#x27;, &#x27;rounds&#x27;)}, revising ${target} as appropriate after each round.`;
@@ -1285,13 +1285,19 @@ html&gt;body{padding:0}&lt;/style&gt;
 
   function contextText(mode, count) {
     if (mode === &#x27;fresh&#x27;) {
+      if (Number(count) === 1) {
+        return `Use a fresh reviewer each round and do not show the reviewer earlier feedback.`;
+      }
       return `Use fresh reviewers each round and do not show them earlier feedback.`;
     }
     if (mode === &#x27;returning&#x27;) {
+      if (Number(count) === 1) {
+        return `Reuse the same reviewer and let the reviewer see their earlier feedback to verify the changes.`;
+      }
       return `Reuse the same reviewers and let them see their earlier feedback so they can verify the changes.`;
     }
     if (Number(count) === 1) {
-      return `Alternate between returning reviewers for verification and fresh reviewers for new eyes as appropriate.`;
+      return `Alternate between reusing the previous reviewer for verification and using a fresh reviewer for new eyes, with only one reviewer per round.`;
     }
     return `Use a mix of returning reviewers to verify changes and fresh reviewers for new eyes.`;
   }
@@ -1329,7 +1335,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       const lines = [
         `Start by making a plan for accomplishing the task. When it is ready, spawn ${reviewerPhrase} to review it adversarially.`,
         contextText(value(&#x27;rlc-plan-context&#x27;), count),
-        iterationText(&#x27;the plan&#x27;, value(&#x27;rlc-plan-rounds&#x27;)),
+        iterationText(&#x27;the plan&#x27;, value(&#x27;rlc-plan-rounds&#x27;), count),
         discretionText(checked(&#x27;rlc-plan-discretion&#x27;))
       ];
       parts.push(lines.join(&#x27; &#x27;));
@@ -1340,14 +1346,14 @@ html&gt;body{padding:0}&lt;/style&gt;
     const finalLines = [
       `Before delivering the finished work, spawn ${finalReviewerPhrase} to review it adversarially.`,
       contextText(value(&#x27;rlc-final-context&#x27;), finalCount),
-      iterationText(&#x27;the work&#x27;, value(&#x27;rlc-final-rounds&#x27;)),
+      iterationText(&#x27;the work&#x27;, value(&#x27;rlc-final-rounds&#x27;), finalCount),
       discretionText(checked(&#x27;rlc-final-discretion&#x27;))
     ];
     parts.push(finalLines.join(&#x27; &#x27;));
 
     const behavior = [];
     if (value(&#x27;rlc-threshold&#x27;) !== &#x27;material&#x27;) behavior.push(threshold);
-    if (lenses) behavior.push(`Focus reviewers on ${lenses}.`);
+    if (lenses) behavior.push(`Focus each reviewer on ${lenses}.`);
     if (behavior.length) parts.push(behavior.join(&#x27; &#x27;));
 
     if (checked(&#x27;rlc-summary&#x27;)) {
