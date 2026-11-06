@@ -1336,7 +1336,8 @@ html&gt;body{padding:0}&lt;/style&gt;
         `Start by making a plan for accomplishing the task. When it is ready, spawn ${reviewerPhrase} to review it adversarially.`,
         contextText(value(&#x27;rlc-plan-context&#x27;), count),
         iterationText(&#x27;the plan&#x27;, value(&#x27;rlc-plan-rounds&#x27;), count),
-        discretionText(checked(&#x27;rlc-plan-discretion&#x27;))
+        discretionText(checked(&#x27;rlc-plan-discretion&#x27;)),
+        `Complete the entire planning and plan review process before starting any implementation, including preliminary or partial work.`
       ];
       parts.push(lines.join(&#x27; &#x27;));
     }
